@@ -106,6 +106,18 @@
           {% if not h1 %}
             <h1>{{ page_title | default(site_name, true)}}</h1>
           {% endif %}
+          <div>
+						{% if page.contributors %}
+						Contributors: 
+						{% for contributor in page.contributors %}
+						{{contributor[0]}}{% if not loop.last %}, {% endif %}
+						{% endfor %}
+						</br>
+						{% endif %}
+						{% if page.last_modified_relative %}
+						Date: {{page.last_modified_relative}}
+						{% endif %}
+					</div>
           {{ content }}
           <aside class="copyright" role="note">
             {% if copyright %}
